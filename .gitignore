@@ -1,0 +1,19 @@
+# node_modules should be ignored
+hello-react/node_modules/
+
+# Log files
+hello-react/*.log
+
+# Environment files (if any)
+hello-react/.env*
+
+# Build output
+hello-react/dist/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.vscode/
+.idea/
