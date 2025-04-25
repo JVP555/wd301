@@ -4,6 +4,7 @@ import { TaskItem } from "./types";
 interface Props {
   tasks: TaskItem[];
 }
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface State {}
 class TaskList extends React.Component<Props, State> {
   
