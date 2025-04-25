@@ -3,24 +3,25 @@ import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface TaskAppProp {}
+
 interface TaskAppState {
   tasks: TaskItem[];
 }
+
 class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
   constructor(props: TaskAppProp) {
     super(props);
     this.state = {
-      tasks: [],
+      tasks: [], // Array to hold task items
     };
   }
+
+  // Function to add a new task to the state
   addTask = (task: TaskItem) => {
-    this.setState((state) => {
-      return {
-        tasks: [...state.tasks, task],
-      };
-    });
+    this.setState((state) => ({
+      tasks: [...state.tasks, task], // Add new task to the list
+    }));
   };
 
   render() {
@@ -38,8 +39,9 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
             <h1 className="text-slate-500 text-xl font-bold text-center mb-2">
               Pending
             </h1>
+            {/* Passing addTask to TaskForm and tasks to TaskList */}
             <TaskForm addTask={this.addTask} />
-            <TaskList tasks={this.state.tasks} />
+            <TaskList tasks={this.state.tasks} /> {/* Passing the tasks to TaskList */}
           </div>
         </div>
       </div>

@@ -1,10 +1,11 @@
-import TaskApp from "./TaskApp";
+import TaskApp from "./TaskApp";  // Import the TaskApp component
 
 function App() {
   return (
     <div className="App">
-      <TaskApp />
+      <TaskApp />  {/* Render the TaskApp component */}
     </div>
   );
 }
+
 export default App;
