@@ -1,11 +1,6 @@
 import React from "react";
-import "./TaskCard.css";  // Make sure you have CSS for TaskItem
-
-interface TaskProps {
-  title: string;
-  dueDate: string;
-  description: string;
-}
+import "./TaskCard.css";
+import { TaskItem } from "./types";
 
 const Task = (props: TaskItem) => {
   return (
@@ -16,6 +11,5 @@ const Task = (props: TaskItem) => {
     </div>
   );
 };
+
 export default Task;
-
-
