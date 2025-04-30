@@ -17,10 +17,11 @@ const TaskApp = () => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
 
-  const deleteTask = (index: number) => {
-    const updatedTasks = taskAppState.tasks.filter((_, i) => i !== index);
+  const deleteTask = (id: string) => {
+    const updatedTasks = taskAppState.tasks.filter((task) => task.id !== id);
     setTaskAppState({ tasks: updatedTasks });
   };
+  
 
   useEffect(() => {
     document.title = `You have ${taskAppState.tasks.length} items`;
