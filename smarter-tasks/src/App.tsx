@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage";
 import TaskListPage from "./pages/TaskListPage";
 import TaskDetailsPage from "./pages/TaskDetailsPage";
 import Signin from "./pages/Signin";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/Notfound";
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "./Layout";
 
