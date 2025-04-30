@@ -1,11 +1,34 @@
-import TaskApp from "./TaskApp";  // Import the TaskApp component
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import HomePage from './pages/HomePage';
+import TaskListPage from './pages/TaskListPage';
+import Layout from "./Layout";
 
-function App() {
+
+const router = createBrowserRouter([
+  {
+    element: (
+      <Layout />
+    ),
+    children: [
+      {
+        path: "/",
+        element: (<HomePage />)
+      },
+      {
+        path: "tasks",
+        element: (<TaskListPage />)
+      }
+    ]
+  }
+]);
+
+const App = () => {
   return (
-    <div className="App">
-      <TaskApp />  {/* Render the TaskApp component */}
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
-export default App;
+export default App
