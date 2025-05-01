@@ -7,13 +7,19 @@ const Dashboard: React.FC = () => {
   // Retrieve user data from localStorage
   const userData = JSON.parse(localStorage.getItem('userData') || '{}');
 
+  // If no user data is found, redirect to the signin page
+  if (!userData || !userData.name || !userData.email) {
+    navigate('/signin');
+    return null; // Render nothing while redirecting
+  }
+
   // Handle logout
   const handleLogout = () => {
     // Clear user data from localStorage
     localStorage.removeItem('authToken');
     localStorage.removeItem('userData');
-    
-    // Redirect to login page (Signin or Signup page)
+    sessionStorage.clear();
+    // Redirect to login page (Signin page)
     navigate('/signin');
   };
 
@@ -22,14 +28,10 @@ const Dashboard: React.FC = () => {
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">Dashboard</h1>
         
-        {userData && userData.name ? (
-          <div className="bg-white p-6 rounded shadow-md">
-            <p className="text-lg font-semibold text-gray-700">Welcome, {userData.name}!</p>
-            <p className="text-sm text-gray-600">Email: {userData.email}</p>
-          </div>
-        ) : (
-          <p className="text-gray-600">User not logged in</p>
-        )}
+        <div className="bg-white p-6 rounded shadow-md">
+          <p className="text-lg font-semibold text-gray-700">Welcome, {userData.name}!</p>
+          <p className="text-sm text-gray-600">Email: {userData.email}</p>
+        </div>
 
         <button
           id="logout-link"
