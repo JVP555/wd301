@@ -47,7 +47,7 @@ const SignupForm: React.FC = () => {
       } else {
         console.error('No user data received in response');
       }
-      navigate('/dashboard');
+      navigate('/signin');
 
     } catch (error) {
       console.error('Sign-up failed:', error);
