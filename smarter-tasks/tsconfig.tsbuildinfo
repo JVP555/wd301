@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/ProtectedRoute.tsx","./src/globals.d.ts","./src/main.tsx","./src/config/constants.ts","./src/hooks/useLocalStorage.ts","./src/pages/Notfound.tsx","./src/pages/dashboard/index.tsx","./src/pages/signin/SigninForm.tsx","./src/pages/signin/index.tsx","./src/pages/signup/SignupForm.tsx","./src/pages/signup/index.tsx"],"version":"5.7.3"}
