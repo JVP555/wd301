@@ -49,7 +49,7 @@ const SignupForm: React.FC = () => {
       }
 
       // Redirect to the signin page after successful signup
-      navigate('/signin');
+      navigate('/account');
     } catch (error) {
       console.error('Sign-up failed:', error);
     }
