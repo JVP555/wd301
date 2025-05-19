@@ -58,7 +58,7 @@ const Appbar = () => {
                           to={item.href}
                           className={classNames(
                             isCurrent
-                              ? 'bg-slate-50 text-blue-700'
+                              ? 'bg-slate-50 text-blue-700 dark:bg-slate-800'
                               : 'text-slate-500 hover:text-blue-600',
                             'rounded-md px-3 py-2 text-sm font-medium'
                           )}
