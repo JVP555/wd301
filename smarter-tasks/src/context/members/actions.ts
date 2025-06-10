@@ -2,6 +2,30 @@
 // src/context/members/actions.ts
 import { API_ENDPOINT } from '../../config/constants';
 
+// src/context/members/actions.ts
+export const DeleteMember = async (dispatch: any, id: string) => {
+  const token = localStorage.getItem("authToken") ?? "";
+
+  try {
+    const res = await fetch(`${API_ENDPOINT}/users/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to delete");
+    }
+
+    dispatch({ type: "DELETE_MEMBER", payload: id });
+    return { ok: true };
+  } catch (error: any) {
+    return { ok: false, error: error.message };
+  }
+};
+
 
 export const fetchMembers = async (dispatch: any) => {
   const token = localStorage.getItem("authToken") ?? "";

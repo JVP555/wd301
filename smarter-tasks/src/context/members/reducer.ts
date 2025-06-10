@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MembersState, Member } from '../../types.ts';
 
 // Now, I'll rename the interface in the `MemberList` component from `State`
@@ -24,6 +25,7 @@ export type MembersActions =
   | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
   | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
   | { type: 'ADD_MEMBER_SUCCESS'; payload: Member }
+  | { type: 'DELETE_MEMBER'; payload: string };
 
 export const reducer = (state: MembersState = initialState, action: MembersActions): MembersState => {
   switch (action.type) {
@@ -48,7 +50,9 @@ export const reducer = (state: MembersState = initialState, action: MembersActio
     case 'ADD_MEMBER_SUCCESS':
       // Here I'll insert new new member object, which is coming in this 
       // `action.payload`, to the `members` array present in state.
-      return { ...state, members: [...state.members, action.payload] };           
+      return { ...state, members: [...state.members, action.payload] };  
+    case 'DELETE_MEMBER':
+      return { ...state, members: state.members.filter((member: any) => member.id !== action.payload) };         
     default:
       return state;
   }
