@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
-import { reducer, initialState, ProjectsState, ProjectsActions } from "./reducer";
+import { reducer, initialState , ProjectsActions } from "./reducer";
+import { ProjectsState} from '../../types.ts';
 
 type ProjectsDispatch = React.Dispatch<ProjectsActions>;
 

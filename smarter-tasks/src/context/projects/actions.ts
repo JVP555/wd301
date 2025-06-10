@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/context/projects/actions.ts
 import { API_ENDPOINT } from '../../config/constants';
 export const fetchProjects = async (dispatch: any) => {

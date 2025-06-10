@@ -1,5 +1,6 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/pages/members/MemberListItems.tsx
-import React from "react";
 
 // First, I'll import the useMembersState custom hook to access members state.
 import { useMembersState } from "../../context/members/context";

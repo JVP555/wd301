@@ -1,7 +1,6 @@
-interface Project {
-  id: number;
-  name: string;
-}
+import { ProjectsState, Project } from '../../types.ts';
+
+
 // Now, I'll rename the interface in the `ProjectList` component from `State`
 // to `ProjectsState`. And I'll also export the interface. 
 

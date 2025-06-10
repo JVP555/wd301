@@ -1,9 +1,5 @@
-interface Member {
-  id: number;
-  name: string;
-  email: string;
-  password: string;
-}
+import { MembersState, Member } from '../../types.ts';
+
 // Now, I'll rename the interface in the `MemberList` component from `State`
 // to `MembersState`. And I'll also export the interface. 
 

@@ -1,6 +1,6 @@
 // src/App.tsx
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import router from "./routes"
