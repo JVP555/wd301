@@ -39,7 +39,6 @@ const initialData: ProjectData = {
         },
     },
     columnOrder: ["pending", "in_progress", "done"],
-    length: 0
 };
 
 export default initialData;
