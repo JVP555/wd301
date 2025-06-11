@@ -26,6 +26,8 @@ const ProjectDetails = () => {
   if (tasksState.isLoading) {
     return <>Loading...</>;
   }
+  console.log("Project data:", tasksState.projectData);
+
   return (
     <>
       <div className="flex justify-between">
