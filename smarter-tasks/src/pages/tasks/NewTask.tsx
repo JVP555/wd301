@@ -40,6 +40,7 @@ const NewTask = () => {
       // Invoke the actual API and create a task.
       addTask(taskDispatch, projectID ?? "", data);
       closeModal();
+      console.log(data);
     } catch (error) {
       console.error("Operation failed:", error);
     }
