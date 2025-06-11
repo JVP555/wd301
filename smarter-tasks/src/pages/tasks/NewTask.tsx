@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -89,6 +89,8 @@ const NewTask = () => {
                         {...register("title", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
+                      {errors.title && (<p className="text-red-500 text-xs mt-1">Title is required</p>)}
+
                       <input
                         type="text"
                         required
