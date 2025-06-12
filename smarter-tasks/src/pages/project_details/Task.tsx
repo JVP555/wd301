@@ -1,5 +1,5 @@
 import "./TaskCard.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { Draggable } from "react-beautiful-dnd";
 import React, { forwardRef } from "react";
 import { useTasksDispatch } from "../../context/task/context";
@@ -12,7 +12,7 @@ const Task = forwardRef<
 >((props, ref) => {
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
-  const navigate = useNavigate(); // ✅ ADD THIS LINE
+
   const { task } = props;
 
   return (
@@ -32,15 +32,6 @@ const Task = forwardRef<
               Assignee: {task.assignedUserName ?? "-"}
             </p>
           </div>
-          <button
-            onClick={(event) => {
-              event.preventDefault();
-              navigate(`/account/projects/${projectID}/tasks/${task.id}/comments`);
-            }}
-            className="mt-10 mb-10 py-2 px-4 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            View Details
-          </button>
           <button
             className="deleteTaskButton cursor-pointer mt-10 mb-10 py-2 px-4 text-sm mr-10 bg-red-500 text-white rounded hover:bg-red-600"
             onClick={(event) => {
