@@ -1,24 +1,29 @@
 import { useProjectsState } from "../../context/projects/context";
 import { useTasksState } from "../../context/task/context";
-import TaskDetails from "./TaskDetails";
 import { useParams } from "react-router-dom";
+import TaskDetails from "./TaskDetails";
+
 
 const TaskDetailsContainer = () => {
-  const { taskID } = useParams();
+  const { projectID, taskID } = useParams();
   const projectState = useProjectsState();
   const taskListState = useTasksState();
   const isFetchingTasks = taskListState.isLoading;
   const selectedTask = taskListState.projectData.tasks?.[taskID || ""];
-  // We will render a loader based on the status,
-  // We make sure, the tasks have been fetched, project is a valid one.
+
   if (isFetchingTasks || !projectState || projectState?.isLoading) {
- return <>Loading...</>;
+    return <>Loading...</>;
   }
-  if (!selectedTask) {
+
+  if (!selectedTask || !projectID || !taskID) {
     return <>No such task!</>;
   }
 
-  return <TaskDetails />;
+  return (
+    <div className="space-y-6">
+      <TaskDetails />
+    </div>
+  );
 };
 
 export default TaskDetailsContainer;
