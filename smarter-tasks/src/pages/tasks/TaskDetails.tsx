@@ -108,7 +108,7 @@ const TaskDetails = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md h-110 transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -142,53 +142,52 @@ const TaskDetails = () => {
                         {...register("dueDate", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                     />
-                    <h3><strong>Assignee</strong></h3>
-                    <Listbox
-                        value={selectedPerson}
-                        onChange={setSelectedPerson}
-                    >
-                        <Listbox.Button className="w-full border rounded-md py-2 px-3 my-2 text-gray-700 text-base text-left">
-                        {selectedPerson}
-                        </Listbox.Button>
-                        <Listbox.Options className="absolute mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                        {memberState?.members.map((person) => (
-                            <Listbox.Option
-                            key={person.id}
-                            className={({ active }) =>
-                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                active
-                                    ? "bg-blue-100 text-blue-900"
-                                    : "text-gray-900"
-                                }`
-                            }
-                            value={person.name}
-                            >
-                            {({ selected }) => (
-                                <>
-                                <span
-                                    className={`block truncate ${
-                                    selected ? "font-medium" : "font-normal"
-                                    }`}
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Assignee</h3>
+                      <Listbox value={selectedPerson} onChange={setSelectedPerson}>
+                        <div className="relative mt-1">
+                          <Listbox.Button className="w-full cursor-pointer rounded-lg border border-gray-300 bg-white py-2 px-4 text-left text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                            {selectedPerson || "Select a person"}
+                          </Listbox.Button>
+
+                          <div className="absolute z-10 mt-2 w-full rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                            <Listbox.Options className="absolute z-10 w-full max-h-20 overflow-y-auto rounded-lg bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                              {memberState?.members.map((person) => (
+                                <Listbox.Option
+                                  key={person.id}
+                                  value={person.name}
+                                  className={({ active }) =>
+                                    `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
+                                      active ? "bg-blue-100 text-blue-900" : "text-gray-900"
+                                    }`
+                                  }
                                 >
-                                    {person.name}
-                                </span>
-                                {selected ? (
-                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
-                                    <CheckIcon
-                                        className="h-5 w-5"
-                                        aria-hidden="true"
-                                    />
-                                    </span>
-                                ) : null}
-                                </>
-                            )}
-                            </Listbox.Option>
-                        ))}
-                        </Listbox.Options>
-                    </Listbox>
+                                  {({ selected }) => (
+                                    <>
+                                      <span
+                                        className={`block truncate ${
+                                          selected ? "font-medium" : "font-normal"
+                                        }`}
+                                      >
+                                        {person.name}
+                                      </span>
+                                      {selected && (
+                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
+                                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                        </span>
+                                      )}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </div>
+                        </div>
+                      </Listbox>
+
+
                       <button
                         type="submit"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center mt-10 rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
                         Update
                       </button>

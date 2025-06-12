@@ -8,9 +8,9 @@ import Projects from "../pages/projects"
 import Members from "../pages/members"
 import Logout from "../pages/logout";
 import ProjectContainer from "../pages/projects/ProjectContainer";
-import ProjectDetails from "../pages/project_details";
 import NewTask from "../pages/tasks/NewTask";
 import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
+import ProjectDetails from "../pages/project_details";
 const router = createBrowserRouter([
   { path: "/", element: <Navigate to="/account/projects" replace /> },
   {

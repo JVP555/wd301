@@ -1,9 +1,7 @@
 // Import required type annotations
 import { API_ENDPOINT } from "../../config/constants";
+import { ProjectData, TaskDetails, TaskDetailsPayload } from "./types";
 import {
-  ProjectData,
-  TaskDetails,
-  TaskDetailsPayload,
   TaskListAvailableAction,
   TasksDispatch,
 } from "./types";

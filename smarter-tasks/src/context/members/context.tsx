@@ -1,14 +1,11 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
-import { reducer, initialState, MembersActions } from "./reducer";
-import { MembersState} from '../../types.ts';
-type MembersDispatch = React.Dispatch<MembersActions>;
+import { reducer, initialState } from "./reducer";
+import { MembersState, MembersDispatch} from "./types";
 
-const MembersStateContext = createContext<MembersState | undefined>(undefined);
-const MembersDispatchContext = createContext<MembersDispatch | undefined>(undefined);
-
-export const useMembersState = () => useContext(MembersStateContext);
-export const useMembersDispatch = () => useContext(MembersDispatchContext);
+const MembersStateContext = createContext<MembersState>(initialState);
+const MembersDispatchContext = createContext<MembersDispatch>(() => {
+  throw new Error("useMembersDispatch must be used within a MembersProvider");
+});
 
 export const MembersProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -21,3 +18,6 @@ export const MembersProvider: React.FC<React.PropsWithChildren> = ({ children })
     </MembersStateContext.Provider>
   );
 };
+
+export const useMembersState = () => useContext(MembersStateContext);
+export const useMembersDispatch = () => useContext(MembersDispatchContext);

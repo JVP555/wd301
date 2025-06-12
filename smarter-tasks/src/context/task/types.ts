@@ -1,36 +1,7 @@
+import React from "react";
+
 export type AvailableColumns = "pending" | "in_progress" | "done";
-export type ColumnData = {
-  id: string;
-  title: string;
-  taskIDs: string[];
-};
-export type Columns = {
-  [k in AvailableColumns]: ColumnData;
-};
-export type TaskDetails = {
-  id: number;
-  title: string;
-  description: string;
-  dueDate: string;
-  state: AvailableColumns;
-  assignee?: number,
-  assignedUserName?: string
-};
-export type TaskDetailsPayload = Omit<TaskDetails, "id" | "assignee" | "state">;
-export type Tasks = {
-  [k: string]: TaskDetails;
-};
-export type ProjectData = {
-  tasks: Tasks;
-  columns: Columns;
-  columnOrder: AvailableColumns[];
-};
-export interface TaskListState {
-  projectData: ProjectData;
-  isLoading: boolean;
-  isError: boolean;
-  errorMessage: string;
-}
+
 // Actions that are available
 export enum TaskListAvailableAction {
   FETCH_TASKS_REQUEST = "FETCH_TASKS_REQUEST",
@@ -70,3 +41,36 @@ export type TaskActions =
 
 // A type to hold dispatch actions in a context.
 export type TasksDispatch = React.Dispatch<TaskActions>;
+export type ColumnData = {
+  id: string;
+  title: string;
+  taskIDs: string[];
+};
+export type Columns = {
+  [k in AvailableColumns]: ColumnData;
+};
+export type TaskDetails = {
+  id: number;
+  title: string;
+  description: string;
+  dueDate: string;
+  state: AvailableColumns;
+  assignee?: number,
+  assignedUserName?: string
+};
+export type TaskDetailsPayload = Omit<TaskDetails, "id" | "assignee" | "state">;
+export type Tasks = {
+  [k: string]: TaskDetails;
+};
+export type ProjectData = {
+  length: number;
+  tasks: Tasks;
+  columns: Columns;
+  columnOrder: AvailableColumns[];
+};
+export interface TaskListState {
+  projectData: ProjectData;
+  isLoading: boolean;
+  isError: boolean;
+  errorMessage: string;
+}

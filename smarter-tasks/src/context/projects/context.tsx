@@ -1,15 +1,12 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
-import { reducer, initialState , ProjectsActions } from "./reducer";
-import { ProjectsState} from '../../types.ts';
+import { reducer, initialState } from "./reducer";
+import type { ProjectsState, ProjectsDispatch } from "./types"; // Move types to another file
 
-type ProjectsDispatch = React.Dispatch<ProjectsActions>;
+const ProjectsStateContext = createContext<ProjectsState>(initialState);
 
-const ProjectsStateContext = createContext<ProjectsState | undefined>(undefined);
-const ProjectsDispatchContext = createContext<ProjectsDispatch | undefined>(undefined);
-
-export const useProjectsState = () => useContext(ProjectsStateContext);
-export const useProjectsDispatch = () => useContext(ProjectsDispatchContext);
+const ProjectsDispatchContext = createContext<ProjectsDispatch>(() => {
+  throw new Error("useProjectsDispatch must be used within a ProjectsProvider");
+});
 
 export const ProjectsProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -22,3 +19,6 @@ export const ProjectsProvider: React.FC<React.PropsWithChildren> = ({ children }
     </ProjectsStateContext.Provider>
   );
 };
+
+export const useProjectsState = () => useContext(ProjectsStateContext);
+export const useProjectsDispatch = () => useContext(ProjectsDispatchContext);

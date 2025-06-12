@@ -20,6 +20,7 @@
     "react-router-dom": "^7.5.3"
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
     "@eslint/js": "^9.22.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/react": "^19.1.2",

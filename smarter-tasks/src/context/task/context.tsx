@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
 import { taskReducer, initialState } from "./reducer";
 import { TaskListState, TasksDispatch } from "./types";

@@ -1,5 +1,6 @@
 import { ProjectData } from "./types";
 
+
 const initialData: ProjectData = {
     columns: {
         pending: {
@@ -23,7 +24,7 @@ const initialData: ProjectData = {
             id: 1,
             title: "Sample Task",
             description: "Sample description about the task which is to be completed",
-            dueDate: "",
+            dueDate: "2023-05-12",
             state: "in_progress",
             assignee: undefined,
             assignedUserName: undefined
@@ -32,13 +33,14 @@ const initialData: ProjectData = {
             id: 2,
             title: "Another Sample Task",
             description: "Sample description about the task which is to be completed",
-            dueDate: "",
+            dueDate: "2025-7-10",
             state: "pending",
             assignee: undefined,
             assignedUserName: undefined
         },
     },
     columnOrder: ["pending", "in_progress", "done"],
+    length: 0
 };
 
 export default initialData;
