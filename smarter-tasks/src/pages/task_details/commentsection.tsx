@@ -64,7 +64,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ projectID, taskID }) =>
                   Task Comments
                 </Dialog.Title>
 
-                <div className="mt-4 space-y-2 max-h-[300px] overflow-y-auto">
+                <div className="comment mt-4 space-y-2 max-h-[300px] overflow-y-auto">
                   {comments.map((c, index) => (
                     <div key={index} className="border p-2 rounded">
                       <div>{c.description}</div>
