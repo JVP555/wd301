@@ -210,7 +210,7 @@ const TaskDetails = () => {
                   {/* Comments Section */}
                   <div className="mt-6">
                     <h3 className="text-md font-semibold text-gray-900 mb-2">Comments</h3>
-                    <div className="max-h-40 mt-2 overflow-y-auto space-y-2">
+                    <div className="comment max-h-40 mt-2 overflow-y-auto space-y-2">
                       {comments.map((c, idx) => (
                         <div key={idx} className="border p-2 rounded bg-gray-50">
                           <div>{c.description}</div>

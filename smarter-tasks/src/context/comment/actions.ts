@@ -20,13 +20,17 @@ export const fetchComments = async (
     const data = await response.json();
     console.log("Fetched comments:", JSON.stringify(data, null, 2));
 
-    const mapped: Comment[] = data.map((c: any) => ({
-      id: c.id,
-      description: c.description ?? "",
-      taskId: c.task_id,
-      owner: c.User?.name ?? "Unknown",
-      createdAt: c.createdAt ?? "", // include createdAt
-    }));
+    const mapped: Comment[] = data
+      .map((c: any): Comment => ({
+        id: c.id,
+        description: c.description ?? "",
+        taskId: c.task_id,
+        owner: c.User?.name ?? "Unknown",
+        createdAt: c.createdAt ?? "",
+      }))
+      .sort((a: Comment, b: Comment) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+
 
     dispatch({ type: ActionType.SET_COMMENTS, payload: mapped });
   } catch (error) {
