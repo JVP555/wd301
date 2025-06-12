@@ -3,7 +3,7 @@ export interface Comment {
     id: number;
     description: string;
     taskId: number;
-    owner: number;
+    owner: string;
     createdAt: string;
 }
 

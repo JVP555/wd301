@@ -10,6 +10,7 @@ import { ThemeContext } from "./context/theme";
 
 import { ProjectsProvider } from "./context/projects/context";
 import { MembersProvider } from "./context/members/context";
+import { CommentProvider } from "./context/comment/context";
 
 
 // Then I'll wrap the RouterProvider component with the <ProjectsProvider> component.
@@ -17,11 +18,13 @@ const App = () => {
   const { theme } = useContext(ThemeContext)
   return (
      <div className={`h-screen w-full mx-auto py-2 ${theme === "dark" ? "dark" : ""}`}>
-      <ProjectsProvider>
-        <MembersProvider>
-          <RouterProvider router={router} />
-        </MembersProvider>
-      </ProjectsProvider>
+      <CommentProvider>
+        <ProjectsProvider>
+          <MembersProvider>
+            <RouterProvider router={router} />
+          </MembersProvider>
+        </ProjectsProvider>
+      </CommentProvider>
     </div>
   );
 }

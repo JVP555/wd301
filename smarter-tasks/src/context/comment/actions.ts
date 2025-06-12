@@ -24,7 +24,7 @@ export const fetchComments = async (
       id: c.id,
       description: c.description ?? "",
       taskId: c.task_id,
-      owner: c.owner ?? Number(projectId),
+      owner: c.User?.name ?? "Unknown",
       createdAt: c.createdAt ?? "", // include createdAt
     }));
 

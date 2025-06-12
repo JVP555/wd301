@@ -11,7 +11,7 @@ import ProjectContainer from "../pages/projects/ProjectContainer";
 import NewTask from "../pages/tasks/NewTask";
 import TaskDetailsContainer from "../pages/tasks/TaskDetailsContainer";
 import ProjectDetails from "../pages/project_details";
-import TaskDetailsPage from "../pages/task_details";
+
 
 
 const router = createBrowserRouter([
@@ -59,10 +59,6 @@ const router = createBrowserRouter([
                   {
                     path: ":taskID",
                     element: <TaskDetailsContainer />,
-                  },
-                  {
-                    path: ":taskID/comments",
-                    element: <TaskDetailsPage />
                   },
                 ],
               },
